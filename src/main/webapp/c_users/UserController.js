@@ -1,6 +1,8 @@
-app.controller('userCtrl',['$scope','UserService','$location','$rootScope','$cookieStore','$http',
-						function($scope, UserService, $location, $rootScope, $cookieStore, $http) {
+app.controller('userCtrl',['$scope','$q','UserService','$location','$rootScope','$cookieStore','$http',
+						function ($scope, $q, UserService, $location, $rootScope, $cookieStore, $http) {
 							
+							$scope.image='';
+	
 							this.createUser = function(user)
 							{
 								console.log("createUser...");
@@ -85,5 +87,22 @@ app.controller('userCtrl',['$scope','UserService','$location','$rootScope','$coo
 											console.log("error");
 										}
 									 )
+							};
+							
+							this.setimage=function(){
+								console.log("setimage");
+								console.log($scope.image);
+								UserService.setimage($scope.image,$rootScope.currentUser.id)
+								.then(
+										function(response)
+										{
+											console.log(response);
+											alert("Image uploaded successfully");
+										},
+										function(errResponse)
+										{
+											console.log("Error");
+										}
+									  );
 							}
 }]);

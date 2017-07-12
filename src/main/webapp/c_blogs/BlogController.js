@@ -18,6 +18,7 @@ app.controller
 			reason: '',
 			description: ''
 			};
+	
 	self.getAllBlogs = function() {
 		console.log("fetchAllBlogs...")
 		BlogService.getAllBlogs()

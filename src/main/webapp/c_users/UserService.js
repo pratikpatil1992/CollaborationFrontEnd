@@ -54,13 +54,27 @@ app.service('UserService',['$http','$rootScope', function($http,$rootScope) {
 		 {
 			 
 			 return $http.get(BASE_URL+"/user/"+id)
-			 .then(function(response)
+			 .then(
+					 function(response)
 					 {
 				 		$rootScope.selectedUser=response.data;
 				 		return response.data;
 				 
 				 }, 
 				 null);
+		 },
+		 
+		 setimage:function(image,id)
+		 {
+			 
+			 return $http.post(BASE_URL+'/setimage/'+id,image)
+			 .then(
+					 function(response)
+					 {
+						 return response.data;
+					 },
+					 null
+				  );
 		 }
 		 
          
