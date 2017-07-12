@@ -1,0 +1,22 @@
+
+<div ng-controller="blogCtrl as bctrl" ng-init="bctrl.getAllBlogs()">
+<h1>Blogs</h1>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th  ng-show="currentUser.role=='admin'">ID</th>
+        <th>Title</th>
+        <th>Author</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="b in bctrl.allblogs">
+        <td ng-show="currentUser.role=='admin'">{{b.id}}</td>
+        <td><a href="" ng-click="bctrl.view(b.id)">{{b.title}}</a></td>
+        <td>{{b.user_id}}</td>
+        <td ng-show="currentUser.role=='admin'"><a href="" ng-click="bctrl.deleteblog(b.id)">Delete</a></td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>

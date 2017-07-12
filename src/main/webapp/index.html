@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-cookies.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script  src="app.js"></script>
+    <script  src="c_blogs/BlogController.js"></script>
+      <script  src="c_blogs/BlogService.js"></script>
+     <script  src="c_jobs/JobController.js"></script>
+      <script  src="c_jobs/JobService.js"></script>
+      <script  src="c_users/UserController.js"></script>
+      <script  src="c_users/UserService.js"></script>
+      <script  src="c_friends/FriendController.js"></script>
+      <script  src="c_friends/FriendService.js"></script>
+      <script  src="c_comments/CommentController.js"></script>
+      <script  src="c_comments/CommentService.js"></script>
+<meta charset="ISO-8859-1">
+<title>LetzChat</title>
+</head>
+
+<body ng-app="myApp">
+<div ng-include="'Shared/header.html'"></div>
+<div ng-show="currentUser">Welcome {{currentUser.name}}</div>
+<div class="container" ng-view>
+
+</div>
+
+</body>
+</html>
