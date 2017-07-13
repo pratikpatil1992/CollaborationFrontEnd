@@ -1,0 +1,10 @@
+<div class="controller" ng-controller="userCtrl as uCtrl" style="background-image:url(images/login-bg.jpg)">
+<h1 align="center">Login</h1>
+<form ng-submit="uCtrl.validate()">
+<div class="form-group" >
+    <div class="col-sm-5"><input autofocus type="email" ng-model="user.email" class="form-control" placeholder="Email ID"></div>
+    <div class="col-sm-5"><input type="password" ng-model="user.password" class="form-control" placeholder="Password"></div>
+</div>
+  <div align="center"><button type="submit" class="btn btn-default">Submit</button></div>
+</form>
+</div>

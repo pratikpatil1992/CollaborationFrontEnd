@@ -1,0 +1,21 @@
+
+<div ng-controller="jobCtrl as jCtrl" ng-init="jCtrl.getAppliedJobs()" class="container">
+<h1>Jobs</h1>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Qualification</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="a in jCtrl.appliedjobs" ng-init="jCtrl.getJobById(a.job_id)">
+      	<td>{{selectedJob.title}}</td>
+      	<td>{{selectedJob.description}}</td>
+      	<td>{{selectedJob.qualification}}</td>
+      	<td>{{selectedJob.status}}</td>
+    </tbody>
+  </table>
+</div>

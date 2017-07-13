@@ -1,0 +1,38 @@
+ 
+<nav class="navbar navbar-inverse">
+  <div class="controller" ng-controller="userCtrl as uCtrl">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#/!">Collaboration</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Blogs<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#!allblogs">Show all</a></li>
+          <li ng-show="!currentUser"><a href="#!login">Write a blog</a></li>
+          <li ng-show="currentUser"><a href="#!createblog">Write a blog</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Jobs<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li ng-show="currentUser.role=='user'"><a href="#!appliedjobs" ng-controller="jobCtrl as jCtrl" ng-click="jCtrl.getAppliedJobs()">Applied</a></li>
+          <li><a href="#!jobs">Show all</a></li>
+          <li ng-show="currentUser.role=='admin'"><a href="#!createjob">Post a job</a></li>
+        </ul>
+      </li>
+      <li><a href="#!chat">Chat</a></li>
+      <li ng-show="!currentUser"><a href="#!login">Login</a></li>
+      <li ng-show="!currentUser"><a href="#!createuser">Sign Up</a></li>
+       <li ng-show="currentUser" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Friends<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+        	<li><a href="#!searchpeople">Search People</a></li>
+        	<li><a href="#!recreq">Requests Received</a></li>
+        	<li><a href="#!acceptreq">Sent Requests</a></li>
+        	<li><a href="#!friends">All Friends</a></li>
+        </ul>
+      </li>
+      <li><a ng-show="!currentUser" href="#!login">Friends</a></li>
+      <li><a ng-show="currentUser" href="#!myprofile">My Profile</a></li>
+      <li ng-hide="!currentUser"><a href="" ng-click="uCtrl.logout()">Logout</a></li>
+    </ul>
+  </div>
+</nav>

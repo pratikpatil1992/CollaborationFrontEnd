@@ -1,0 +1,63 @@
+<div class="controller" ng-controller="userCtrl as uCtrl">
+<form ng-submit="uCtrl.createuser()">
+<div class="container">
+			<div class="row main">
+				<div class="main-login main-center">
+				<h2>Sign Up</h2>
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">First Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input autofocus type="text" ng-model="user.name" class="form-control" placeholder="Enter your name here">
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Email ID</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="email" ng-model="user.email" class="form-control" placeholder="Your email is your User ID."></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="address" class="cols-sm-2 control-label">Address</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" ng-model="user.address" class="form-control" placeholder="Enter your address here"></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="mobile" class="cols-sm-2 control-label">Mobile</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" ng-model="user.mobile" class="form-control" placeholder="Enter your mobile here">
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="password" ng-model="user.password" class="form-control" placeholder="Enter your password here">
+								</div>
+							</div>
+						</div>
+
+						<div align="center" class="form-group ">
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</div>
+						
+			</div>
+		</div>
+</form>

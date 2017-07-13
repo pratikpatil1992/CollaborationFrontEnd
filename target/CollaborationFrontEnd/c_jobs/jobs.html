@@ -1,0 +1,25 @@
+
+<div ng-controller="jobCtrl as jCtrl" ng-init="jCtrl.getAllJobs()" class="container">
+<h1>Jobs</h1>
+<table class="table table-hover">
+    <thead>
+      <tr>
+      	<th ng-show="currentUser.role=='admin'">ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Qualification</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="j in jCtrl.jobs" >
+      	<td ng-show="currentUser.role=='admin'">{{j.id}}</td>
+      	<td>{{j.title}}</td>
+      	<td>{{j.description}}</td>
+      	<td>{{j.qualification}}</td>
+        <td ng-show="currentUser.role=='user'"><a href="" ng-click="jCtrl.apply(j.id)">Apply</a></td>
+        <td ng-show="currentUser.role=='admin'"><a href="" ng-click="jCtrl.deletejob(j.id)">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div ng-show="!currentUser" align="center"><h4><a href="#!login">Login</a> to apply to/post a job.</h4></div>
