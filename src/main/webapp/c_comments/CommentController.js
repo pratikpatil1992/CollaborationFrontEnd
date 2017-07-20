@@ -18,7 +18,7 @@ app.controller('comCtrl', [
 						function(errResponse) {
 							console.error('Error while fetching comments');
 						});
-	}
+	};
 	
 	self.postcomment=function()
 	{
@@ -27,14 +27,27 @@ app.controller('comCtrl', [
 				.then(
 						function()
 						{
-							$location.path("/blog");
+							$location.path("/blogcontent");
 						},
 						function(errResponse)
 						{
 							console.error('Error while posting comment');
 						});
 				
-	}
-	;
+	};
+	
+	self.deletecomment=function(id)
+	{
+		console.log("deletecomment");
+		CommentService.deletecomment(id)
+			.then(
+					function()
+					{
+						$location.path("/blogcontent");
+					},
+					function(errResponse){
+						console.error('Error while deleting comment');
+					});
+	};
 
 }])

@@ -12,10 +12,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 
-  <script  src="app.js"></script>
-    <script  src="c_blogs/BlogController.js"></script>
+      <script  src="app.js"></script>
+      <script  src="c_blogs/BlogController.js"></script>
       <script  src="c_blogs/BlogService.js"></script>
-     <script  src="c_jobs/JobController.js"></script>
+      <script  src="c_jobs/JobController.js"></script>
       <script  src="c_jobs/JobService.js"></script>
       <script  src="c_users/UserController.js"></script>
       <script  src="c_users/UserService.js"></script>
@@ -23,14 +23,16 @@
       <script  src="c_friends/FriendService.js"></script>
       <script  src="c_comments/CommentController.js"></script>
       <script  src="c_comments/CommentService.js"></script>
+      <script  src="c_chat/ChatController.js"></script>
+      <script  src="c_chat/ChatService.js"></script>
 <meta charset="ISO-8859-1">
 <title>LetzChat</title>
 </head>
 
 <body ng-app="myApp">
-<div ng-include="'Shared/header.html'"></div>
-<div ng-show="currentUser">Welcome {{currentUser.name}}</div>
-<div class="container" ng-view>
+<div ng-controller="userCtrl" ng-include="'Shared/header.html'"></div>
+<div ng-controller="userCtrl" ng-show="currentUser">Welcome {{currentUser.name}}</div>
+<div ng-view>
 
 </div>
 

@@ -3,8 +3,7 @@ var app = angular.module("myApp", ["ngRoute","ngCookies"]);
 app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
-    	
-        templateUrl : "home.html"
+        templateUrl:"home.html",
     })
     .when("/allblogs", {
         templateUrl : "c_blogs/blogs.html",
@@ -43,14 +42,6 @@ app.config(function($routeProvider) {
         templateUrl : "c_friends/friends.html",
         controller: 'friendCtrl'
     })
-    .when("/acceptreq", {
-        templateUrl : "c_friends/friends.html",
-        controller: 'friendCtrl'
-    })
-    .when("/sentreq", {
-        templateUrl : "c_friends/friends.html",
-        controller: 'friendCtrl'
-    })
     .when("/myprofile", {
         templateUrl : "c_users/myprofile.html",
         controller: 'userCtrl'
@@ -59,9 +50,17 @@ app.config(function($routeProvider) {
         templateUrl : "c_users/searchpeople.html",
         controller: 'userCtrl'
     })
+    .when("/sentreq", {
+        templateUrl : "c_friends/sentreq.html",
+        controller: 'friendCtrl'
+    })
+    .when("/recreq", {
+        templateUrl : "c_friends/recreq.html",
+        controller: 'friendCtrl'
+    })
     .when("/chat", {
-        templateUrl : "c_chat/chat_forum.html",
-        controller: 'ChatForumController'
+        templateUrl : "c_chat/chat.html",
+        controller: 'chatCtrl'
     })
     ;
 });

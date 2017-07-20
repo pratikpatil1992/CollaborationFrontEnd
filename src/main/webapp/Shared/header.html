@@ -19,15 +19,16 @@
           <li ng-show="currentUser.role=='admin'"><a href="#!createjob">Post a job</a></li>
         </ul>
       </li>
-      <li><a href="#!chat">Chat</a></li>
+      <li ng-show="currentUser"><a href="#!friends">Chat</a></li>
+      <li ng-show="!currentUser"><a href="#!login">Chat</a></li>
       <li ng-show="!currentUser"><a href="#!login">Login</a></li>
       <li ng-show="!currentUser"><a href="#!createuser">Sign Up</a></li>
        <li ng-show="currentUser" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Friends<span class="caret"></span></a>
         <ul class="dropdown-menu">
         	<li><a href="#!searchpeople">Search People</a></li>
         	<li><a href="#!recreq">Requests Received</a></li>
-        	<li><a href="#!acceptreq">Sent Requests</a></li>
-        	<li><a href="#!friends">All Friends</a></li>
+        	<li><a href="#!sentreq">Sent Requests</a></li>
+        	<li><a href="#!friends">Friends/Chat</a></li>
         </ul>
       </li>
       <li><a ng-show="!currentUser" href="#!login">Friends</a></li>

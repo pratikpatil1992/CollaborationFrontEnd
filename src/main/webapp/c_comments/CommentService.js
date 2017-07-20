@@ -28,6 +28,20 @@ app.service('CommentService',['$http','$rootScope', function($http,$rootScope) {
 				 },
 				 null
 		);
-	 }
-	 }
+	 },
+		 
+	deletecomment:function(id)
+	{
+		console.log("deletecomment in rest service");
+		return $http.delete(BASE_URL+'/deletecomment/'+id)
+		.then(
+				function(response)
+				{
+					console.log(response);
+				},
+				null
+			);	
+	}
+	 
+	}
 }])

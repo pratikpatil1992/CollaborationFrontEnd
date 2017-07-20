@@ -5,7 +5,7 @@ app.controller('friendCtrl', [
 	
 	var self=this;
 	$scope.allfriends=[];
-	
+	$rootScope.friendprofile=[];
 	self.getAllFriends = function() {
 		console.log("fetchAllFriends...")
 		FriendService.getAllFriends($rootScope.currentUser.id)
@@ -47,19 +47,6 @@ app.controller('friendCtrl', [
 							console.error('Error while accepting friend request');
 						}
 					);
-	},
-	
-	self.getrecreq = function() {
-		console.log("getrecreq...")
-		FriendService.getAllRequests($rootScope.currentUser.id)
-				.then(
-						function(r) {
-							console.log(r);
-							$scope.recreq = r;
-						},
-						function(errResponse) {
-							console.error('Error while fetching jobs');
-						});
 	},
 	
 	self.getrecreq = function() {

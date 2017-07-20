@@ -1,0 +1,18 @@
+
+<div ng-controller="friendCtrl as fCtrl" ng-init="fCtrl.getsentreq()" class="container" style="background-image:url(images/friends-bg.jpg)">
+<h1>Sent Requests</h1>
+<table class="table table-hover">
+    <thead>
+      <tr>
+      	<th>Name</th>
+      </tr>
+    </thead>
+    <tbody ng-controller="userCtrl as uCtrl">
+      <tr ng-repeat="a in sentreq" ng-init="uCtrl.getuser(a.friend_id)">
+      	<td><td><img src="images\userimages\{{currentUser.imagepath}}" height="150" width="80" alt="Image" class="img-rounded img-responsive"/></td></td>
+      	<td>{{selectedUser.name}}</td>
+      	<td>Request Sent</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

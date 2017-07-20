@@ -1,5 +1,21 @@
-app.controller('userCtrl',['$scope','UserService','$location','$rootScope','$cookieStore','$http',
-						function ($scope,UserService, $location, $rootScope, $cookieStore, $http) {
+app.directive('fileModel', ['$parse', function ($parse) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            var model = $parse(attrs.fileModel);
+            var modelSetter = model.assign;
+
+            element.bind('change', function(){
+                scope.$apply(function(){
+                    modelSetter(scope, element[0].files[0]);
+                });
+            });
+        }
+    };
+}]);
+
+app.controller('userCtrl',['$scope','UserService','$location','$rootScope','$cookies','$http',
+						function ($scope,UserService, $location, $rootScope, $cookies, $http) {
 							
 							$scope.image='';
 	
@@ -14,7 +30,8 @@ app.controller('userCtrl',['$scope','UserService','$location','$rootScope','$coo
 												},
 												function(errResponse) {
 													console.error('Error while creating User');
-												});
+												}
+											  );
 							};
 							
 							this.logout=function()
@@ -25,7 +42,7 @@ app.controller('userCtrl',['$scope','UserService','$location','$rootScope','$coo
 											function()
 											{
 												$rootScope.currentUser='';
-												$cookieStore.remove('currentUser');
+												$cookies.remove('currentUser');
 												alert("Logged out successfully");
 												$location.path("/login");
 											},
@@ -42,14 +59,14 @@ app.controller('userCtrl',['$scope','UserService','$location','$rootScope','$coo
 										.then(
 												function(data){
 													$rootScope.currentUser=data;
-													$cookieStore.put('currentUser',$rootScope.currentUser);
+													$cookies.put('currentUser',$rootScope.currentUser);
 													$location.path("/");   //url after submitting
 												},
 												function(errResponse){
 													console.error('Error while logging in');
 												}			
 									
-											  )
+											  );
 							};
 							
 							this.createuser=function()
@@ -69,7 +86,17 @@ app.controller('userCtrl',['$scope','UserService','$location','$rootScope','$coo
 							
 							this.getuser=function(id)
 							{
-								UserService.getuser(id);
+								console.log('getuser...');
+								UserService.getuser(id)
+								.then(
+										function(response)
+										{
+											$scope.selectedUser=response;
+										},
+										function(errResponse)
+										{
+											console.error('Error while retrieving user');
+										})
 							};
 							
 							this.searchpeople=function()
@@ -86,12 +113,16 @@ app.controller('userCtrl',['$scope','UserService','$location','$rootScope','$coo
 										{
 											console.log("error");
 										}
-									 )
+									 );
 							};
 							
 							this.setimage=function(){
 								console.log("setimage");
-								UserService.setimage($scope.image,$rootScope.currentUser.id)
+								  var file =  $scope.image;
+								  console.log(file);
+								  var fd = new FormData();
+								   fd.append('file',file);
+								UserService.setimage(fd,$rootScope.currentUser.id)
 								.then(
 										function(response)
 										{
@@ -103,7 +134,7 @@ app.controller('userCtrl',['$scope','UserService','$location','$rootScope','$coo
 											console.log("Error");
 										}
 									  );
-							}
 							
+							}
 							
 }]);

@@ -52,13 +52,14 @@ app.service('UserService',['$http','$rootScope', function($http,$rootScope) {
 		 
 		 getuser:function(id)
 		 {
-			 
+			 console.log('getuser...');
 			 return $http.get(BASE_URL+"/user/"+id)
 			 .then(
 					 function(response)
 					 {
-				 		$rootScope.selectedUser=response.data;
-				 		return response.data;
+						 $rootScope.friendprofile.push(response.data);
+						 console.log(response.data);
+						 return response.data;
 				 
 				 }, 
 				 null);
@@ -67,7 +68,10 @@ app.service('UserService',['$http','$rootScope', function($http,$rootScope) {
 		 setimage:function(image,id)
 		 {
 			 
-			 return $http.post(BASE_URL+'/setimage/'+id,image)
+			 return $http.post(BASE_URL+'/setimage/'+id,image,{
+		            transformRequest: angular.identity,
+		            headers: {'Content-Type': undefined}
+		        })
 			 .then(
 					 function(response)
 					 {

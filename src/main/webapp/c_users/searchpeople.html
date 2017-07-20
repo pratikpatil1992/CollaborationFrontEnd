@@ -21,6 +21,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="u in searchresults">
+      	<td><img src="images\userimages\{{u.imagepath}}" height="150" width="80" alt="Image" class="img-rounded img-responsive"/></td>
       	<td>{{u.name}}</td>
       	<td><a href="" ng-click="fCtrl.sendreq(u.id)">Add Friend</a></td>
       </tr>

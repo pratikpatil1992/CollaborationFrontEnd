@@ -13,6 +13,7 @@
       <tr ng-repeat="c in allComments">
       	<td>{{c.content}}</td>
       	<td>-{{c.user_id}}</td>
+      	<td ng-show="currentUser.id=='c.user_id'"><a href="" ng-click="cCtrl.deletecomment(c.id)">Delete</a></td>
       </tr>
     </tbody>
   </table>
