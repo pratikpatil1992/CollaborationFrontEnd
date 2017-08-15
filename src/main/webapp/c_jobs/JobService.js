@@ -75,7 +75,23 @@ app.service('JobService',['$http','$rootScope', function($http,$rootScope) {
         	  			},
         	  			null
         	  		);
-          }
+          },
+          
+         searchjob: function(title)
+   		 {
+   			 console.log("calling search");
+   			 return $http.post(BASE_URL+'/searchjobs/',title)
+   			 .then
+   			 (
+   					 function(response)
+   					 {
+   						 console.log(response.data);
+   						 return response.data;
+   					 },
+   					 null
+   			  );
+   		 }
+          
          
 	 }
         

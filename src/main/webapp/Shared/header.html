@@ -8,6 +8,7 @@
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Blogs<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="#!allblogs">Show all</a></li>
+          <li><a href="#!searchblogs">Search Blogs</a></li>
           <li ng-show="!currentUser"><a href="#!login">Write a blog</a></li>
           <li ng-show="currentUser"><a href="#!createblog">Write a blog</a></li>
         </ul>
@@ -16,6 +17,7 @@
         <ul class="dropdown-menu">
           <li ng-show="currentUser.role=='user'"><a href="#!appliedjobs" ng-controller="jobCtrl as jCtrl" ng-click="jCtrl.getAppliedJobs()">Applied</a></li>
           <li><a href="#!jobs">Show all</a></li>
+          <li><a href="#!searchjobs">Search Jobs</a></li>
           <li ng-show="currentUser.role=='admin'"><a href="#!createjob">Post a job</a></li>
         </ul>
       </li>

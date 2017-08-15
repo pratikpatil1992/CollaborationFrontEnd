@@ -80,5 +80,22 @@ app.controller
 					}
 				  )
 		};
+		
+		this.searchblogs=function()
+		{
+			console.log("searchblogs");
+			BlogService.searchblog($scope.blogtitle)
+			.then(
+					function(b)
+					{
+						console.log(b);
+						$scope.searchblogresults=b;
+					},
+					function(errResponse)
+					{
+						console.log("error");
+					}
+				 );
+		};
 	
 }]);

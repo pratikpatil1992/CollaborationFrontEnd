@@ -1,0 +1,34 @@
+<div ng-controller="jobCtrl as jCtrl" class="container" style="background-image:url(images/searchpeople-bg.jpg)">
+<div>
+<form ng-submit="jCtrl.searchjobs()">
+      <div class="input-group">
+        <input autofocus type="text" ng-model="jobtitle" class="form-control" placeholder="Search jobs">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
+</form>
+</div>
+
+<div ng-show="searchjobresults" ng-controller="jobCtrl as jCtrl" class="container">
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Qualification</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="j in searchjobresults">
+      	<td>{{j.title}}</td>
+      	<td>{{j.description}}</td>
+      	<td>{{j.qualification}}</td>
+        <td ng-show="currentUser.role=='user'"><a href="" ng-click="jCtrl.apply(j.id)">Apply</a></td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

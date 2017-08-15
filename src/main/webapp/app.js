@@ -62,5 +62,13 @@ app.config(function($routeProvider) {
         templateUrl : "c_chat/chat.html",
         controller: 'chatCtrl'
     })
+    .when("/searchblogs", {
+        templateUrl : "c_blogs/searchblogs.html",
+        controller: 'blogCtrl'
+    })
+    .when("/searchjobs", {
+        templateUrl : "c_jobs/searchjobs.html",
+        controller: 'jobCtrl'
+    })
     ;
 });

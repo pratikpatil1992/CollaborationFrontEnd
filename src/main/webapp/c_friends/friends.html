@@ -10,6 +10,7 @@
     </thead>
     <tbody ng-controller="chatCtrl">
       <tr ng-repeat="u in allfriends">
+      	<td><img src="images\userimages\{{friendprofile[$index].imagepath}}" height="150" width="80" alt="Image" class="img-rounded img-responsive"/></td>
       	<td ng-if="currentUser.id==u.user_id" ng-init="uCtrl.getuser(u.friend_id)">{{friendprofile[$index].name}}</td>
       	<td ng-if="currentUser.id!=u.user_id" ng-init="uCtrl.getuser(u.user_id)">{{friendprofile[$index].name}}</td>
       	<td ng-show="friendprofile[$index].isOnline=='N'">Offline</td>

@@ -48,7 +48,22 @@ app.service('BlogService',['$http','$rootScope', function($http,$rootScope) {
         	   				},
         	   				null
         	   			 );
-           }
+           },
+           
+           searchblog: function(title)
+  		 {
+  			 console.log("calling search");
+  			 return $http.post(BASE_URL+'/searchblogs/',title)
+  			 .then
+  			 (
+  					 function(response)
+  					 {
+  						 console.log(response.data);
+  						 return response.data;
+  					 },
+  					 null
+  			  );
+  		 }
          
          
 	 }

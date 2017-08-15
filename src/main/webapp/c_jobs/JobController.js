@@ -102,5 +102,21 @@ app.controller('jobCtrl', [
 				)
 		};
 		
+		this.searchjobs=function()
+		{
+			console.log("searchblogs");
+			JobService.searchjob($scope.jobtitle)
+			.then(
+					function(b)
+					{
+						console.log(b);
+						$scope.searchjobresults=b;
+					},
+					function(errResponse)
+					{
+						console.log("error");
+					}
+				 );
+		};
 	
 }]);
